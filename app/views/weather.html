@@ -1,0 +1,121 @@
+<div class="view-about">
+    <div class="col-md-12">
+        <form class="form-inline">
+            <div class="pull-left">
+                <div class="form-group language-select">
+                    <label for="country">{{"views.main.country" | translate}}</label>
+                    <select id="country" ng-model="statessource" ng-options="country | translate for (country, states) in countries"
+                            ng-change="GetSelectedCountry()">
+                        <option value=''>Select</option>
+                    </select>
+                </div>
+
+                <div class="form-group language-select">
+                    <label for="state">{{"views.main.state" | translate}}</label>
+                    <select id="state" ng-disabled="!statessource" ng-model="citiessource"
+                            ng-options="state for (state,city) in statessource"
+                            ng-change="GetSelectedState()">
+                        <option value=''>Select</option>
+                    </select>
+                </div>
+
+                <div class="form-group language-select">
+                    <label for="city">{{"views.main.city" | translate}}</label>
+                    <select id="city" ng-disabled="!citiessource || !statessource" ng-model="city">
+                        <option value=''>
+                            Select
+                        </option>
+                        <option ng-repeat="city in citiessource" value='{{city}}'>{{city}}</option>
+                    </select>
+                </div>
+                <div class="form-group language-select">
+                    <label for="cnt">{{"views.main.results" | translate}}</label>
+                    <select id="cnt" ng-model="cnt">
+                        <option value=''>
+                            Select
+                        </option>
+                        <option value=1>1</option>
+                        <option value=5>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-right margin22">
+                <button type="submit" class="btn" ng-click="searchCurrentWeatherByCity(city,cnt)">
+                    {{"views.main.Submit" | translate}}
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="row" ng-switch="cod">
+        <div ng-switch-when="200">
+            <div ng-repeat="data in weatherData">
+
+                <div class="col-xs-12 col-md-6 col-lg-6 pull-left">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-4 col-md-1 col-lg-1 pull-left">
+                                <h3 class="city-name">{{citydataname}} <img
+                                        ng-src="http://openweathermap.org/img/w/{{data.weather[0].icon}}.png"/></h3>
+                                <span class="main-temp">{{data.temp.day  | number:1}}</span><span
+                                    class="celsius-sign">&#8451</span>
+                                <span class="description"> {{data.weather[0].main}} </span>
+                                <p></p>
+                                <p>{{"views.main.lat" | translate}}<span class="description"> {{citycoordlat}} </span></p>
+                                <p>{{"views.main.lng" | translate}}<span class="description"> {{citycoordlon}} </span></p>
+
+                            </div>
+                            <div class="col-xs-8 col-md-5 col-lg-5 pull-right">
+                                <p class="humidity">
+                                    {{"views.main.humidity" | translate}} {{data.humidity}} %
+                                </p>
+
+
+                                <p></p>
+                                <p>
+                                    {{"views.main.min" | translate}} <span class="max-min-temp min">{{data.temp.min | number:1}}</span><span
+                                        class="celsius-sign">&#8451</span>
+                                </p>
+
+                                <p>
+                                    {{"views.main.max" | translate}} <span class="max-min-temp max">{{data.temp.max | number:1}}</span><span
+                                        class="celsius-sign"> &#8451</span>
+                                </p>
+
+                                <p>
+                                    {{"views.main.morning" | translate}} <span
+                                        class="max-min-temp morning">{{data.temp.morn | number:1}}</span><span
+                                        class="celsius-sign">&#8451</span>
+                                </p>
+
+                                <p>
+                                    {{"views.main.evening" | translate}} <span class="max-min-temp evening">{{data.temp.eve | number:1}}</span><span
+                                        class="celsius-sign"> &#8451</span>
+                                </p>
+
+                                <p>
+                                    {{"views.main.night" | translate}} <span class="max-min-temp night">{{data.temp.night | number:1}}</span><span
+                                        class="celsius-sign">&#8451</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="panel-footer"> <span class="record-date">
+						{{data.dt * 1000 | date:'dd.MM.yyyy'}} </span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div ng-if="city==null || cnt==null">
+            <div class="col-lg-4 col-lg-offset-4 ">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    {{"views.main.warnings" | translate}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

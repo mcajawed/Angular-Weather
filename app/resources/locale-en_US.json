@@ -1,0 +1,45 @@
+{
+  "PAGE_TITLE": "Weather AngularJS applications",
+  "PAGE_CONTENT": " AngularJS applications weather report translation sass gulp ui router",
+  "USA":"USA",
+  "India":"India",
+  "Australia":"Australia",
+  "views.Fork me on": "Fork me on",
+
+  "views.index.Home": "Home",
+  "views.index.Weather": "Weather",
+
+  "views.index.from the jawed": "from the Jawed contact:mcajawed@gmail.com",
+
+  "views.main.i18n for your AngularJS Weather applications": "i18n for your AngularJS Weather applications",
+  "views.main.country":"Country:",
+  "views.main.state":"State:",
+  "views.main.city":"City:",
+  "views.main.results":"Results:",
+  "views.main.Submit": "Submit",
+
+  "views.main.humidity":"Humidity:",
+  "views.main.min": "Min:",
+  "views.main.max": "Max:",
+  "views.main.morning": "Morning:",
+  "views.main.evening": "Evening:",
+  "views.main.night": "Night:",
+  "views.main.lat": "lat:",
+  "views.main.lng": "lng:",
+  "views.main.warnings":"Warning! Better check yourself, you're not looking too good.",
+  "views.main.Weather Application": "Weather Application",
+  "views.main.Weather Application description": "Weather Application is a professional front-end template for building fast, robust, and adaptable web apps for check current report",
+  "views.main.Angular": "Angular",
+  "views.main.Angular description": "AngularJS is a toolset for building the framework most suited to your application development.",
+  "views.main.SASS": "SASS",
+  "views.main.SASS description": "An extension of CSS that adds power and elegance to the basic language. It allows to use variables, nested rules, mixins, inline imports, and more.",
+  "views.main.Translate": "Angular-Translate",
+  "views.main.Translate description": "Angular-Translate for multilingual application with locale.",
+  "views.main.router": "Angular-UI-Router",
+  "views.main.router description": "Angular-UI-Router the de-facto solution to flexible routing with nested views in AngularJS.",
+
+
+
+
+  "directives.language-select.Language": "Language"
+}
